@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cos.photogram.handler.ex.CustomApiException;
 import com.cos.photogram.handler.ex.CustomValidationApiException;
 import com.cos.photogram.handler.ex.CustomValidationException;
 import com.cos.photogram.util.Script;
@@ -23,5 +24,10 @@ public class ControllerExceptionHandler {
 	@ExceptionHandler(CustomValidationApiException.class)
 	public ResponseEntity<?> validationApiException(CustomValidationApiException e) {
 		return new ResponseEntity<>(new CMRespDto<>(-1, e.getMessage(), e.getErorrMap()), HttpStatus.BAD_REQUEST);
+	}
+	
+	@ExceptionHandler(CustomApiException.class)
+	public ResponseEntity<?> apiException(CustomApiException e) {
+		return new ResponseEntity<>(new CMRespDto<>(-1, e.getMessage(), null), HttpStatus.BAD_REQUEST);
 	}
 }
