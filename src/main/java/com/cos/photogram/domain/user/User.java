@@ -1,13 +1,19 @@
 package com.cos.photogram.domain.user;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
+
+import com.cos.photogram.domain.image.Image;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -47,6 +53,10 @@ public class User {
 	private String profile_image_url;	//사용자 프로필 이미지 경로
 	
 	private String role;
+	
+	@OneToMany(mappedBy = "user")
+	@JsonIgnoreProperties({"user"})
+	private List<Image> images = new ArrayList<>();
 	
 	private LocalDateTime create_date;
 	
