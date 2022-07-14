@@ -9,5 +9,7 @@ public class UserProfileDto {
 
 	private User user;
 	private boolean pageOwnerState;
+	private boolean subscribeState;
 	private int imageCount;
+	private int subscribeCount;
 }
