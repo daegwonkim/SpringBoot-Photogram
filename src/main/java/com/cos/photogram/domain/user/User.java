@@ -54,8 +54,8 @@ public class User {
 	
 	private String role;
 	
-	@OneToMany(mappedBy = "user")
 	@JsonIgnoreProperties({"user"})
+	@OneToMany(mappedBy = "user")
 	private List<Image> images = new ArrayList<>();
 	
 	private LocalDateTime create_date;
