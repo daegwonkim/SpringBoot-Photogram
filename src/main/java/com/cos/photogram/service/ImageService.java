@@ -3,6 +3,7 @@ package com.cos.photogram.service;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -56,5 +57,10 @@ public class ImageService {
 		});
 		
 		return images;
+	}
+	
+	@Transactional(readOnly = true)
+	public List<Image> popular() {
+		return imageRepository.popular();
 	}
 }
