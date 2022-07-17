@@ -10,9 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.PrePersist;
 import javax.persistence.Transient;
 
+import com.cos.photogram.domain.comment.Comment;
 import com.cos.photogram.domain.likes.Likes;
 import com.cos.photogram.domain.user.User;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -39,6 +41,11 @@ public class Image {
 	@JoinColumn(name = "user_id")
 	@ManyToOne
 	private User user;
+	
+	@OrderBy("id DESC")
+	@JsonIgnoreProperties({"image"})
+	@OneToMany(mappedBy = "image")
+	private List<Comment> comments;
 	
 	@JsonIgnoreProperties({"image"})
 	@OneToMany(mappedBy = "image")
