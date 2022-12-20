@@ -16,6 +16,7 @@ public class AuthService {
 	private final UserRepository userRepository;
 	private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
+	/* 사용자 회원가입 */
 	@Transactional
 	public void join(User user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));

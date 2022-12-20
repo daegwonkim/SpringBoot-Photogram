@@ -25,9 +25,11 @@ public class ImageService {
 
 	private final ImageRepository imageRepository;
 	
+	/* 이미지 업로드 폴더 */
 	@Value("${file.path}")
 	private String uploadFolder;
 	
+	/* 이미지 업로드 */
 	@Transactional
 	public void upload(ImageUploadDto imageUploadDto, PrincipalDetails principalDetails) {
 		UUID uuid = UUID.randomUUID();
@@ -44,6 +46,7 @@ public class ImageService {
 		imageRepository.save(image);
 	}
 	
+	/* 스토리 페이지 */
 	@Transactional(readOnly = true)
 	public Page<Image> story(Long principalId, Pageable pageable) {
 		Page<Image> images = imageRepository.story(principalId, pageable);
@@ -59,6 +62,7 @@ public class ImageService {
 		return images;
 	}
 	
+	/* 인기 페이지 */
 	@Transactional(readOnly = true)
 	public List<Image> popular() {
 		return imageRepository.popular();

@@ -3,6 +3,7 @@ package com.cos.photogram.service;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -28,9 +29,16 @@ public class UserService {
 	private final SubscribeRepository subscribeRepository;
 	private final BCryptPasswordEncoder bCryptPasswordEncoder;
 	
+	/* 사용자 프로필 이미지 저장 폴더 */
 	@Value("${file.path}")
 	private String uploadFolder;
+	
+	/* 프로필 검색 */
+	public List<User> search(String name) {
+		return userRepository.findByNameContaining(name);
+	}
 
+	/* 회원정보 수정 */
 	@Transactional
 	public User update(Long id, User user) {
 		User userEntity = userRepository.findById(id).orElseThrow(() -> {
@@ -47,6 +55,7 @@ public class UserService {
 		return userEntity;
 	}
 	
+	/* 사용자 프로필 */
 	@Transactional(readOnly = true)
 	public UserProfileDto profile(Long pageUserId, Long principalUserId) {
 		UserProfileDto userProfileDto = new UserProfileDto();
@@ -72,6 +81,7 @@ public class UserService {
 		return userProfileDto;
 	}
 	
+	/* 사용자 프로필 이미지 변경 */
 	@Transactional
 	public User profileImageUpdate(Long principalId, MultipartFile profileImageFile) {
 		UUID uuid = UUID.randomUUID();

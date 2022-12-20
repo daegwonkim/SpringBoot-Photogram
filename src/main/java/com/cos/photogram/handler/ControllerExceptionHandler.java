@@ -17,6 +17,7 @@ import com.cos.photogram.web.dto.auth.CMRespDto;
 @ControllerAdvice
 public class ControllerExceptionHandler {
 
+	/* 유효성 검사 예외 */
 	@ExceptionHandler(CustomValidationException.class)
 	public String validationException(CustomValidationException e) {
 		if(e.getErorrMap() == null) {
@@ -26,6 +27,7 @@ public class ControllerExceptionHandler {
 		}
 	}
 	
+	/* 유효성 검사 예외(api) */
 	@ExceptionHandler(CustomValidationApiException.class)
 	public ResponseEntity<?> validationApiException(CustomValidationApiException e) {
 		return new ResponseEntity<>(new CMRespDto<>(-1, e.getMessage(), e.getErorrMap()), HttpStatus.BAD_REQUEST);

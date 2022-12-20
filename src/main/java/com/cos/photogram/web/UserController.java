@@ -18,6 +18,7 @@ public class UserController {
 	
 	private final UserService userService;
 
+	/* 사용자 프로필 페이지 */
 	@GetMapping("/user/{pageUserId}")
 	public String profile(@PathVariable Long pageUserId, Model model, @AuthenticationPrincipal PrincipalDetails principalDetails) {
 		UserProfileDto userProfileDto = userService.profile(pageUserId, principalDetails.getUser().getId());
@@ -26,8 +27,14 @@ public class UserController {
 		return "user/profile";
 	}
 	
+	/* 회원정보 수정 페이지 */
 	@GetMapping("/user/{id}/update")
 	public String update(@PathVariable Long id) {
 		return "user/update";
+	}
+	
+	@GetMapping("/user/search")
+	public String search() {
+		return "user/search";
 	}
 }

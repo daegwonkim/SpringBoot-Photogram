@@ -19,18 +19,24 @@ public class AuthController {
 	
 	private final AuthService authService;
 
+	/* 로그인 페이지 */
 	@GetMapping("/auth/signin")
 	public String signinForm() {
+		
 		return "auth/signin";
 	}
 	
+	/* 회원가입 페이지 */
 	@GetMapping("/auth/signup")
 	public String signupForm() {
+		
 		return "auth/signup";
 	}
 	
+	/* 회원가입 진행 */
 	@PostMapping("/auth/signup")
 	public String signup(@Valid SignupDto signupDto, BindingResult bindingResult) {
+		
 		//SignupDto -> User
 		User user = signupDto.toEntity();
 		authService.join(user);

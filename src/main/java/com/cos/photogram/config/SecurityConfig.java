@@ -7,16 +7,24 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.cos.photogram.config.oauth.OAuth2DetailsService;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @EnableWebSecurity	//Security 활성화
 @Configuration	//IoC
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
+	private final OAuth2DetailsService oAuth2DetailsService;
+	
+	/* 비밀번호 인코더 */
 	@Bean
 	public BCryptPasswordEncoder encode() {
 		return new BCryptPasswordEncoder();
 	}
 
-	//기존 Security의 기능을 모두 비활성화 시키고 기능을 직접 지정
+	//기존 Security의 기능을 모두 비활성화 시키고 직접 지정
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
@@ -28,6 +36,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.formLogin()
 				.loginPage("/auth/signin")	//로그인 페이지 경로(GET)
 				.loginProcessingUrl("/auth/signin")	//로그인 요청 경로(POST) - 해당 경로로 요청이 올 경우 Spring Security가 로그인 진행
-				.defaultSuccessUrl("/");	//로그인에 성공할 시 요청되는 경로
+				.defaultSuccessUrl("/")	//로그인에 성공할 시 요청되는 경로
+			.and()
+			.oauth2Login()
+				.userInfoEndpoint()	//OAuth2 로그인 시 최종응답으로 회원정보를 바로 받을 수 있음
+				.userService(oAuth2DetailsService);
 	}
 }
