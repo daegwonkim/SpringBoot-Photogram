@@ -30,14 +30,6 @@ public class UserApiController {
 	
 	private final UserService userService;
 	private final SubscribeService subscribeService;
-	
-	/* 프로필 검색 */
-	@GetMapping("/api/search/{name}")
-	public ResponseEntity<?> searchProfile(@PathVariable String name) {
-		List<User> userEntityList = userService.search(name);
-		
-		return new ResponseEntity<>(new CMRespDto<>(1, "사용자 프로필 검색 성공", userEntityList), HttpStatus.OK);
-	}
 
 	/* 회원정보 수정 */
 	@PutMapping("/api/user/{id}")

@@ -33,7 +33,7 @@ public class UserService {
 	@Value("${file.path}")
 	private String uploadFolder;
 	
-	/* 프로필 검색 */
+	/* 검색 */
 	public List<User> search(String name) {
 		return userRepository.findByNameContaining(name);
 	}

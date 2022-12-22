@@ -7,20 +7,24 @@
 		<article class="search-list" id="searchList">
 
 			<!--전체 리스트 아이템-->
-			<div>
-				<div align="center" style="font-size: 35px; padding-bottom: 10px;">사람</div>
-				<div align="center" style="font-size: 15px; font-weight: bold;">12,727명</div>
-			</div>
-			<div style="width: 500px; height: 50px;">
-				<div style="display: flex;">
-					<img src="/images/person.jpeg" style="width: 100px; height: 100px;" />
-					<div>
-						<h4>김대권</h4>
-						<div>안녕하세요 백앤드 개발자를 꿈꾸고 있습니다.</div>
-					</div>
-				</div>
+			<div class="search-summary">
+				<div class="search-title" align="center">사람</div>
+				<div class="search-count" align="center">${users.size()}명</div>
 			</div>
 			
+			<c:forEach var="user" items="${users}">
+				<div class="flex" style="width: 400px;">
+					<img class="search-profile-img" src="/upload/${user.profile_image_url}" onerror="this.src='/images/person.jpeg'" />
+					<div class="search-profile">
+						<div class="search-profile-item">
+							<h5 class="pointer" onclick="location.href='/user/${user.id}'">${user.name}</h5>
+							<div class="search-profile-content">${user.bio}</div>
+						</div>
+					</div>
+				</div>
+				<br>
+			</c:forEach>
+
 		</article>
 	</section>
 </main>

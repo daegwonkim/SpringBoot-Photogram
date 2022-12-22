@@ -180,3 +180,7 @@ span {
   background: #0095f6 !important;
   color: #fff !important;
 }
+
+.pointer {
+	cursor: pointer;
+}

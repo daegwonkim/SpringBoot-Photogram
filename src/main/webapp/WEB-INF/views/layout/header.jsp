@@ -24,10 +24,12 @@
 	<link rel="stylesheet" href="/css/profile.css">
 	<link rel="stylesheet" href="/css/upload.css">
 	<link rel="stylesheet" href="/css/update.css">
+	<link rel="stylesheet" href="/css/search.css">
 	<link rel="shortcut icon" href="/images/insta.svg">
 	
 	<!-- Fontawesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+	
 	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
 	
@@ -45,8 +47,9 @@
 			<a href="/" class="logo">
 				<img src="/images/logo.jpg" alt="">
 			</a>
-			<input type="text" id="search" name="search" placeholder="검색" 
-				onkeypress="if(window.event.keyCode==13){searchProfile()}">
+			<form action="/user/search" method="get">
+				<input type="text" id="search" name="search" placeholder="검색">
+			</form>
 			<nav class="navi">
 				<ul class="navi-list">
 					<li class="navi-item"><a href="/">

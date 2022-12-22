@@ -1,0 +1,50 @@
+@import "header.css";
+
+/* 검색 결과 리스트 */
+.search-list {
+	align-self: center;
+}
+
+/* 검색 결과 요약 */
+.search-summary {
+	padding-top: 40px;
+	padding-bottom: 60px;
+}
+
+/* 검색 타이틀 */
+.search-title {
+	font-size: 35px;
+	padding-bottom: 10px;
+}
+
+/* 검색 수 */
+.search-count {
+	font-size: 15px;
+	font-weight: bold;	
+}
+
+/* 검색 사용자 프로필 이미지 */
+.search-profile-img {
+	width: 64px;
+	height: 64px;
+	border-radius: 70%;
+	border: 1px solid #DCDCDC;
+}
+
+.search-profile {
+	display: table; 
+	height: 64px; 
+	padding-left: 10px;
+}
+
+.search-profile-item {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+/* 검색 사용자 소개글 */
+.search-profile-content {
+	color: gray; 
+	font-size: 12px; 
+	padding-top: 4px;
+}
