@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,6 +49,13 @@
                             </button>
                         </div>
                         <!-- Oauth 소셜로그인end -->
+                        
+                        <div align="center">
+                        	<c:if test="${error}">
+                        		<p class="exception">${exception}</p>
+                        	</c:if>
+                        </div>
+                        
                     </div>
                     
                     <!--계정이 없으신가요?-->

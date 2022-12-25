@@ -3,9 +3,11 @@ package com.cos.photogram.web;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cos.photogram.domain.user.User;
 import com.cos.photogram.service.AuthService;
@@ -21,7 +23,13 @@ public class AuthController {
 
 	/* 로그인 페이지 */
 	@GetMapping("/auth/signin")
-	public String signinForm() {
+	public String signinForm(
+			@RequestParam(value = "error", required = false) String error,
+			@RequestParam(value = "exception", required = false) String exception,
+			Model model) {
+		
+		model.addAttribute("error", error);
+		model.addAttribute("exception", exception);
 		
 		return "auth/signin";
 	}

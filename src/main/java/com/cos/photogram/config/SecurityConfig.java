@@ -2,10 +2,13 @@ package com.cos.photogram.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
 import com.cos.photogram.config.oauth.OAuth2DetailsService;
 
@@ -17,6 +20,7 @@ import lombok.RequiredArgsConstructor;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	private final OAuth2DetailsService oAuth2DetailsService;
+	private final AuthenticationFailureHandler customAuthFailureHandler;
 	
 	/* 비밀번호 인코더 */
 	@Bean
@@ -36,6 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.formLogin()
 				.loginPage("/auth/signin")	//로그인 페이지 경로(GET)
 				.loginProcessingUrl("/auth/signin")	//로그인 요청 경로(POST) - 해당 경로로 요청이 올 경우 Spring Security가 로그인 진행
+				.failureHandler(customAuthFailureHandler)  //로그인 실패시 이를 처리할 핸들러
 				.defaultSuccessUrl("/")	//로그인에 성공할 시 요청되는 경로
 			.and()
 			.oauth2Login()

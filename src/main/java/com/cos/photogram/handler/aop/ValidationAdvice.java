@@ -10,8 +10,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 
+import com.cos.photogram.domain.user.User;
+import com.cos.photogram.domain.user.UserRepository;
+import com.cos.photogram.handler.ex.CustomException;
 import com.cos.photogram.handler.ex.CustomValidationApiException;
 import com.cos.photogram.handler.ex.CustomValidationException;
+
+import lombok.RequiredArgsConstructor;
 
 @Component
 @Aspect
