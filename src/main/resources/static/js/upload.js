@@ -1,4 +1,25 @@
-// (1) 스토리 이미지 업로드를 위한 사진 선택 로직
+// 해시 태그 추가, 삭제 로직
+function addHashtag() {
+	let hashtag = $("#hashtag").val();
+	let item = getHashtagItem(hashtag);
+	$("#hashtagList").append(item);
+}
+
+function removeHashtag(hashtag) {
+	document.getElementById(hashtag).remove();
+}
+
+function getHashtagItem(hashtag) {
+	let item =
+		`<div class="hashtag" id="${hashtag}">
+			<span>#${hashtag}</span>
+			<button type="button" onclick="removeHashtag('${hashtag}')">×</button>
+		</div>`
+	
+	return item;
+}
+
+// 스토리 이미지 업로드를 위한 사진 선택 로직
 function imageChoose(obj) {
 	let f = obj.files[0];
 
