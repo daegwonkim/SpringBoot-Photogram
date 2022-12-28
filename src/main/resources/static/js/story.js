@@ -52,12 +52,34 @@ function getStoryItem(image) {
 
 	item += `
 			</button>
+			
+			<span class="like"><b id="storyLikeCount-${image.id}">${image.likesCount}</b>likes</span>
 		</div>
-
-		<span class="like"><b id="storyLikeCount-${image.id}">${image.likesCount}</b>likes</span>
 
 		<div class="sl__item__contents__content">
 			<p>${image.caption}</p>
+		</div>
+		
+		<div class="sl__item__contents__tag__list">
+			<div class="sl__item__contents__tag">#안녕하세요</div>
+			<div class="sl__item__contents__tag">#안녕</div>
+			<div class="sl__item__contents__tag">#안녕</div>
+			<div class="sl__item__contents__tag">#안녕하세요</div>
+			<div class="sl__item__contents__tag">#안녕</div>
+			<div class="sl__item__contents__tag">#안녕</div>
+			<div class="sl__item__contents__tag">#안녕</div>
+			<div class="sl__item__contents__tag">#안녕하세요</div>
+			<div class="sl__item__contents__tag">#안녕</div>
+			<div class="sl__item__contents__tag">#안녕</div>
+			<div class="sl__item__contents__tag">#안녕하세요</div>
+			<div class="sl__item__contents__tag">#안녕</div>
+			<div class="sl__item__contents__tag">#안녕</div>
+			<div class="sl__item__contents__tag">#안녕하세요</div>
+			<div class="sl__item__contents__tag">#안녕</div>
+			<div class="sl__item__contents__tag">#안녕</div>
+			<div class="sl__item__contents__tag">#안녕</div>
+			<div class="sl__item__contents__tag">#안녕</div>
+			<div class="sl__item__contents__tag">#안녕하세요</div>
 		</div>
 
 		<div id="storyCommentList-${image.id}">`;
