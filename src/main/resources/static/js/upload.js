@@ -1,3 +1,35 @@
+$(function() {
+	$("#uploadBtn").on("click", function() {
+		upload();
+	});
+});
+
+function upload() {
+	let form = $("#uploadForm")[0];
+	let formData = new FormData(form);
+	
+	let hashtagList = document.getElementsByClassName("hashtag-value");
+	for(let i = 0; i < hashtagList.length; i++) {
+		formData.append("hashtagList[" + i + "]", hashtagList[i].innerText);
+	}
+	
+	
+	$.ajax({
+		type: "POST",
+		url: `/api/upload`,
+		data: formData,
+		contentType: false,
+		processData: false
+	}).done(resp => {
+		console.log(resp);
+		
+		location.href=`http://localhost:8080/user/${resp.data}`
+	}).fail(error => {
+		console.log(error);
+	});
+}
+
+
 // 해시 태그 추가, 삭제 로직
 function addHashtag() {
 	let hashtag = $("#hashtag").val();
@@ -12,7 +44,7 @@ function removeHashtag(hashtag) {
 function getHashtagItem(hashtag) {
 	let item =
 		`<div class="hashtag" id="${hashtag}">
-			<span>#${hashtag}</span>
+			<span class="hashtag-value">#${hashtag}</span>
 			<button type="button" onclick="removeHashtag('${hashtag}')">×</button>
 		</div>`
 	

@@ -60,27 +60,13 @@ function getStoryItem(image) {
 			<p>${image.caption}</p>
 		</div>
 		
-		<div class="sl__item__contents__tag__list">
-			<div class="sl__item__contents__tag">#안녕하세요</div>
-			<div class="sl__item__contents__tag">#안녕</div>
-			<div class="sl__item__contents__tag">#안녕</div>
-			<div class="sl__item__contents__tag">#안녕하세요</div>
-			<div class="sl__item__contents__tag">#안녕</div>
-			<div class="sl__item__contents__tag">#안녕</div>
-			<div class="sl__item__contents__tag">#안녕</div>
-			<div class="sl__item__contents__tag">#안녕하세요</div>
-			<div class="sl__item__contents__tag">#안녕</div>
-			<div class="sl__item__contents__tag">#안녕</div>
-			<div class="sl__item__contents__tag">#안녕하세요</div>
-			<div class="sl__item__contents__tag">#안녕</div>
-			<div class="sl__item__contents__tag">#안녕</div>
-			<div class="sl__item__contents__tag">#안녕하세요</div>
-			<div class="sl__item__contents__tag">#안녕</div>
-			<div class="sl__item__contents__tag">#안녕</div>
-			<div class="sl__item__contents__tag">#안녕</div>
-			<div class="sl__item__contents__tag">#안녕</div>
-			<div class="sl__item__contents__tag">#안녕하세요</div>
-		</div>
+		<div class="sl__item__contents__tag__list">`;
+		
+		image.hashtagList.forEach((hashtag) => {
+			item += `<div class="sl__item__contents__tag">${hashtag}</div>`
+		});
+			
+		`</div>
 
 		<div id="storyCommentList-${image.id}">`;
 		
@@ -110,7 +96,7 @@ function getStoryItem(image) {
 		</div>
 
 	</div>
-</div>`;
+</div><br>`;
 
 	return item;
 }

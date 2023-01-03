@@ -51,11 +51,16 @@ public class Image {
 	@OneToMany(mappedBy = "image")
 	private List<Likes> likes;
 	
+	private String hashtag;
+	
 	@Transient	//데이터베이스에 컬럼을 생성하지 않음
 	private boolean likesState;
 	
 	@Transient
 	private int likesCount;
+	
+	@Transient
+	private List<String> hashtagList;
 	
 	private LocalDateTime create_date;
 	

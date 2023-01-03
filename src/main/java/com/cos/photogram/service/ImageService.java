@@ -3,6 +3,7 @@ package com.cos.photogram.service;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -57,6 +58,7 @@ public class ImageService {
 				if(like.getUser().getId() == principalId)
 					image.setLikesState(true);
 			});
+			image.setHashtagList(Arrays.asList(image.getHashtag().split(",")));
 		});
 		
 		return images;

@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cos.photogram.config.auth.PrincipalDetails;
 import com.cos.photogram.domain.image.Image;
+import com.cos.photogram.handler.ex.CustomValidationException;
 import com.cos.photogram.service.ImageService;
 import com.cos.photogram.service.LikesService;
 import com.cos.photogram.web.dto.auth.CMRespDto;
+import com.cos.photogram.web.dto.image.ImageUploadDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -26,6 +28,19 @@ public class ImageApiController {
 
 	private final ImageService imageService;
 	private final LikesService likesService;
+	
+	/* 이미지 업로드 */
+	@PostMapping("/api/upload")
+	public ResponseEntity<?> imageUpload(ImageUploadDto imageUploadDto, 
+			@AuthenticationPrincipal PrincipalDetails principalDetails) {
+		if(imageUploadDto.getFile().isEmpty()) {
+			throw new CustomValidationException("이미지가 첨부되지 않았습니다.", null);
+		}
+
+		imageService.upload(imageUploadDto, principalDetails);
+		
+		return new ResponseEntity<>(new CMRespDto<>(1, "이미지 업로드 성공", principalDetails.getUser().getId()), HttpStatus.OK);
+	}
 	
 	/* 스토리 페이지 */
 	@GetMapping("/api/image")

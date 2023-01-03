@@ -20,7 +20,6 @@
   display: flex;
   flex-direction: column;
   width: 700px;
-  background: #fff;
   margin-bottom: 30px;
 }
 
@@ -37,6 +36,7 @@
   height: 60px;
   display: flex;
   align-items: center;
+  background: #fff;
 }
 
 /*리스트 아이템 헤더 div*/
@@ -87,6 +87,7 @@
 .main .container .story-list .story-list__item .sl__item__contents {
   display: flex;
   flex-direction: column;
+  background: #fff;
 }
 
 /*좋아요 버튼영역*/
