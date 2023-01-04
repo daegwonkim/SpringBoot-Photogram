@@ -36,6 +36,12 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+	
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -47,8 +53,8 @@
 			<a href="/" class="logo">
 				<img src="/images/logo.jpg" alt="">
 			</a>
-			<form action="/user/search" method="get">
-				<input type="text" id="search" name="search" placeholder="검색">
+			<form id="searchForm" action="/search" method="GET">
+				<input type="text" id="search" name="keyword" placeholder="검색">
 			</form>
 			<nav class="navi">
 				<ul class="navi-list">

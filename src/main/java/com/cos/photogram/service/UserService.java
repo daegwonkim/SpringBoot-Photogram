@@ -34,8 +34,8 @@ public class UserService {
 	private String uploadFolder;
 	
 	/* 검색 */
-	public List<User> search(String name) {
-		return userRepository.findByNameContaining(name);
+	public List<User> userSearch(String keyword) {
+		return userRepository.findByNameContaining(keyword);
 	}
 
 	/* 회원정보 수정 */

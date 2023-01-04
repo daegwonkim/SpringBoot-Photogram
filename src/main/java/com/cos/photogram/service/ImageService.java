@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.cos.photogram.config.auth.PrincipalDetails;
 import com.cos.photogram.domain.image.Image;
 import com.cos.photogram.domain.image.ImageRepository;
+import com.cos.photogram.domain.user.User;
 import com.cos.photogram.web.dto.image.ImageUploadDto;
 
 import lombok.RequiredArgsConstructor;
@@ -29,6 +30,11 @@ public class ImageService {
 	/* 이미지 업로드 폴더 */
 	@Value("${file.path}")
 	private String uploadFolder;
+	
+	/* 검색 */
+	public List<Image> imageSearch(String keyword) {
+		return imageRepository.findByHashtagContaining(keyword);
+	}
 	
 	/* 이미지 업로드 */
 	@Transactional

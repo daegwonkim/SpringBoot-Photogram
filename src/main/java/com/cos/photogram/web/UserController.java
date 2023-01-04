@@ -37,13 +37,4 @@ public class UserController {
 	public String update(@PathVariable Long id) {
 		return "user/update";
 	}
-	
-	/* 검색 */
-	@GetMapping("/user/search")
-	public String search(String search, Model model) {
-		List<User> userEntityList = userService.search(search);
-		model.addAttribute("users", userEntityList);
-		
-		return "user/search";
-	}
 }

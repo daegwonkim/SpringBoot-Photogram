@@ -16,4 +16,6 @@ public interface ImageRepository extends JpaRepository<Image, Long>{
 	/* 인기 페이지(좋아요 수에 따라 인기 게시글 출력) */
 	@Query(value = "SELECT i.* FROM image i INNER JOIN (SELECT image_id, COUNT(image_id) like_count FROM likes GROUP BY image_id) c ON i.id = c.image_id ORDER BY like_count DESC", nativeQuery = true)
 	List<Image> popular();
+	
+	List<Image> findByHashtagContaining(String keyword);
 }
