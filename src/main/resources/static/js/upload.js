@@ -13,7 +13,6 @@ function upload() {
 		formData.append("hashtagList[" + i + "]", hashtagList[i].innerText);
 	}
 	
-	
 	$.ajax({
 		type: "POST",
 		url: `/api/upload`,

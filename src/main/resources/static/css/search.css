@@ -20,7 +20,7 @@
 /* 검색 수 */
 .search-count {
 	font-size: 15px;
-	font-weight: bold;	
+	font-weight: bold;
 }
 
 /* 검색 사용자 프로필 이미지 */
@@ -32,8 +32,8 @@
 }
 
 .search-profile {
-	display: table; 
-	height: 64px; 
+	display: table;
+	height: 64px;
 	padding-left: 10px;
 }
 
@@ -44,7 +44,249 @@
 
 /* 검색 사용자 소개글 */
 .search-profile-content {
-	color: gray; 
-	font-size: 12px; 
+	color: gray;
+	font-size: 12px;
 	padding-top: 4px;
+}
+
+/*tab css*/
+body, div, ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+ul, li {
+	list-style: none;
+}
+
+.tab {
+	border: none;
+}
+
+.tabnav {
+	font-size: 0;
+	width: 181px;
+	margin: auto;
+}
+
+.tabnav li {
+	display: inline-block;
+	height: 46px;
+	text-align: center;
+}
+
+.tabnav li a:before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0px;
+	width: 100%;
+	height: 3px;
+}
+
+.tabnav li a.active:before {
+	background: #0095f6;
+}
+
+.tabnav li a.active {
+	border-bottom: 1px solid #fff;
+}
+
+.tabnav li a {
+	position: relative;
+	display: block;
+	background: #fafafa;
+	color: #000;
+	padding: 0 30px;
+	line-height: 46px;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+.tabnav li a:hover, .tabnav li a.active {
+	background: #fff;
+	color: #0095f6;
+}
+
+.tabcontent {
+	padding: 20px;
+	height: 244px;
+}
+
+/* 모달 */
+.modal-search {
+  position: fixed;
+  top: 25px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.modal-search .modal {
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/*게시물 리스트 아이템*/
+.main .modal-search .modal .story-list__item {
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  width: 100%;
+}
+
+/*리스트 아이템 헤더부분*/
+.main .modal-search .modal .story-list__item .sl__item__header {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+}
+
+/*리스트 아이템 헤더 div*/
+.main .modal-search .modal .story-list__item .sl__item__header div {
+  margin-left: 10px;
+}
+
+/*리스트 아이템 헤더 이미지영역 박스*/
+.main
+  .modal-search
+  .modal
+  .story-list__item
+  .sl__item__header
+  div:nth-child(1) {
+  width: 40px;
+  height: 40px;
+  padding: 3px;
+  border-radius: 50%;
+  position: relative;
+}
+
+/*리스트 아이템 헤더 실제이미지*/
+.main
+  .modal-search
+  .modal
+  .story-list__item
+  .sl__item__header
+  div:nth-child(1)
+  img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+/* 게시물 이미지 박스*/
+.main .modal-search .modal .story-list__item .sl__item__img {
+  height: 500px;
+  min-height: 300px;
+}
+
+/* 게시물 이미지*/
+.main .modal-search .modal .story-list__item .sl__item__img img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 게시물 이미지 밑에 영역들 */
+.main .modal-search .modal .story-list__item .sl__item__contents {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+/*좋아요 버튼영역*/
+.main
+  .modal-search
+  .modal
+  .story-list__item
+  .sl__item__contents
+  .sl__item__contents__icon {
+  height: 40px;
+  padding: 5px 0;      
+}
+
+/*좋아요 실제 버튼*/
+.main
+  .modal-search
+  .modal
+  .story-list__item
+  .sl__item__contents
+  .sl__item__contents__icon
+  button {
+  background-color: transparent;
+  width: 40px;
+  font-size: 25px;
+  
+  border: 0;
+  cursor: pointer;
+}
+
+/*게시물 내용*/
+.main
+  .modal-search
+  .modal
+  .story-list__item
+  .sl__item__contents
+  .sl__item__contents__content {
+  padding: 5px 15px;
+}
+
+/*게시물 like 갯수스타일*/
+.main
+  .modal-search
+  .modal
+  .story-list__item
+  .sl__item__contents .like{
+	background-color: transparent;
+	border: 0;
+	color: #aaa;
+	font-size: 14px;
+	margin-bottom: 5px;
+	text-indent: 15px;
+}
+/*게시물 좋아요 count값 */
+.main
+  .modal-search
+  .modal
+  .story-list__item
+.sl__item__contents .like b{
+	margin-right: 5px;
+}
+
+/*태그영역*/
+.sl__item__contents__tag__list{
+  display: flex;
+  flex-wrap: wrap;
+  height: 40px;
+  padding: 5px 15px;
+  margin: 0 0 10px 0;
+}
+.sl__item__contents__tag{
+  font-size: 15px;
+  font-weight: bold;
+  color: #2471A3;
+  padding: 0 5px 0 0; 
+}
+
+/*코멘트 = 댓글 */
+.main
+  .modal-search
+  .modal
+  .story-list__item
+  .sl__item__contents
+  .sl__item__contents__comment
+  {
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: transparent;
+  color: #000;
+  font-size: 16px;
+  padding: 0 15px;
+  margin-bottom: 5px;
 }
