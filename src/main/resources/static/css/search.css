@@ -114,6 +114,14 @@ ul, li {
 }
 
 /* 모달 */
+.modal{
+overflow-y: initial !important
+}
+.modal .story-list__item{
+height: 700px;
+overflow-y: auto;
+}
+
 .modal-search {
   position: fixed;
   top: 25px;
@@ -182,6 +190,7 @@ ul, li {
 
 /* 게시물 이미지 박스*/
 .main .modal-search .modal .story-list__item .sl__item__img {
+  width: 650px;
   height: 500px;
   min-height: 300px;
 }
@@ -289,4 +298,37 @@ ul, li {
   font-size: 16px;
   padding: 0 15px;
   margin-bottom: 5px;
+}
+
+/*댓글 삭제버튼*/
+.main
+  .modal-search
+  .modal
+  .story-list__item
+  .sl__item__contents
+.sl__item__contents__comment button{ border: none; outline: none; background: #fff; cursor: pointer;}
+
+/* 댓글 입력창*/
+.main .modal-search .modal .story-list__item .sl__item__input {
+  display: flex;
+  border-top: 1px solid #dbdbdb;
+}
+
+/*입력 인풋*/
+.main .modal-search .modal .story-list__item .sl__item__input input {
+  flex: 9;
+  height: 56px;
+  border: 0;
+  padding-left: 15px;
+}
+
+/* 입력하기 버튼 */
+.main .modal-search .modal .story-list__item .sl__item__input button {
+  flex: 1;
+  height: 56px;
+  border: 0;
+  background-color: transparent;
+  font-weight: 500;
+  color: #0095f6;
+  font-size: 14px;
 }

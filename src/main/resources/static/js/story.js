@@ -35,7 +35,7 @@ function getStoryItem(image) {
 			<img class="profile-image" src="/upload/${image.user.profile_image_url}"
 				onerror="this.src='/images/person.jpeg'" />
 		</div>
-		<div>${image.user.username}</div>
+		<div>${image.user.name}</div>
 	</div>
 
 	<div class="sl__item__img">
@@ -65,11 +65,11 @@ function getStoryItem(image) {
 		image.hashtagList.forEach((hashtag) => {
 			item += `<div class="sl__item__contents__tag">${hashtag}</div>`
 		});
-			
-		`</div>
-
-		<div id="storyCommentList-${image.id}">`;
 		
+		item += `</div>
+
+		<div id="storyCommentList-${image.id}">`
+			
 			image.comments.forEach((comment) => {
 				item += 
 					`<div class="sl__item__contents__comment" id="storyCommentItem-${comment.id}">
@@ -104,7 +104,7 @@ function getStoryItem(image) {
 // (2) 스토리 스크롤 페이징하기
 $(window).scroll(() => {
 	let checkScroll = $(window).scrollTop() - ($(document).height() - $(window).height());
-	if (checkScroll > 0) {
+	if (checkScroll > -1) {
 		page++;
 		storyLoad();
 	}

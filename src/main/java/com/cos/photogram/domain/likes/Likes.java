@@ -38,14 +38,14 @@ public class Likes {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@JoinColumn(name = "image_id")
-	@ManyToOne
-	private Image image;
-	
 	@JsonIgnoreProperties({"images"})
 	@JoinColumn(name = "user_id")
 	@ManyToOne
 	private User user;
+	
+	@JoinColumn(name = "image_id")
+	@ManyToOne
+	private Image image;
 	
 	private LocalDateTime create_date;
 }

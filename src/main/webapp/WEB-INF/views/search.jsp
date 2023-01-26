@@ -51,7 +51,7 @@
 												<a href=""> <img src="/upload/${image.post_image_url}" />
 												</a>
 												<div class="comment">
-													<a href="#" class=""> <i class="fas fa-heart"></i><span>${image.likesCount}</span>
+													<a href="#" class=""> <i class="fas fa-heart"></i><span>${image.likes.size()}</span>
 													</a>
 												</div>
 											</div>
@@ -70,7 +70,7 @@
 	</section>
 
 	<c:forEach var="image" items="${images}">
-		<div class="modal-search" id="modal-search-${image.id}" onclick="modalSearch()">
+		<div class="modal-search" id="modal-search-${image.id}">
 			<div class="modal">
 				<div class="story-list__item">
 					<div class="sl__item__header">
@@ -87,18 +87,34 @@
 					<div class="sl__item__contents">
 						<div class="sl__item__contents__icon">
 							<button>
-								<i class="far fa-heart" id="storyLikeIcon-6" onclick="toggleLike(6)"></i>
+								<i class="far fa-heart" id="storyLikeIcon-${image.id}" onclick="toggleLike(${image.id})"></i>
 							</button>
 
-							<span class="like"><b id="storyLikeCount-6">${image.likesCount}</b>likes</span>
+							<span class="like"><b id="storyLikeCount-${image.id}">${image.likes.size()}</b>likes</span>
 						</div>
 
 						<div class="sl__item__contents__content">
 							<p>${image.caption}</p>
 						</div>
 
-						<div class="sl__item__contents__tag__list">
-							
+						<div class="sl__item__contents__tag__list"></div>
+
+						<div id="storyCommentList-${image.id}">
+							<c:forEach var="comment" items="${image.comments}">
+								<div class="sl__item__contents__comment" id="storyCommentItem-${comment.id}">
+									<p>
+										<b>${comment.user.username} :</b> ${comment.content}
+									</p>
+									<button onclick="deleteComment(${comment.id})">
+										<i class="fas fa-times"></i>
+									</button>
+								</div>
+							</c:forEach>
+						</div>
+
+						<div class="sl__item__input">
+							<input type="text" placeholder="댓글 달기..." id="storyCommentInput-${image.id}" />
+							<button type="button" onClick="addComment(${image.id})">게시</button>
 						</div>
 
 					</div>

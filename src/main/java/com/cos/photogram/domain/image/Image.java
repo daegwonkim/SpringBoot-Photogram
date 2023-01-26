@@ -22,9 +22,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -37,7 +40,7 @@ public class Image {
 	private String caption;
 	private String post_image_url;	//사진을 전달받아서 서버의 특정 폴더에 저장할 것이므로 사진이 저장된 경로를 저장
 	
-	@JsonIgnoreProperties({"user"})
+	@JsonIgnoreProperties({"images"})
 	@JoinColumn(name = "user_id")
 	@ManyToOne
 	private User user;
@@ -68,4 +71,5 @@ public class Image {
 	public void createDate() {
 		create_date = LocalDateTime.now();
 	}
+
 }
