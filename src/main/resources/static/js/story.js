@@ -196,8 +196,3 @@ function deleteComment(commentId) {
 		console.log(error);
 	});
 }
-
-
-
-
-

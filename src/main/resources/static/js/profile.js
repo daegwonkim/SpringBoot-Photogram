@@ -10,6 +10,14 @@
   (8) 구독자 정보 모달 닫기
  */
 
+$(function() {
+	$(document).mouseup(function(e) {
+		if($(".modal-search").has(e.target).length === 0) {
+			$(".modal-search").css("display", "none");
+		}
+	})
+});
+
 // (1) 유저 프로파일 페이지 구독하기, 구독취소
 function toggleSubscribe(toUserId, obj) {
 	if ($(obj).text() === "구독취소") {
@@ -131,7 +139,7 @@ function profileImageUpload(principalId) {
 
 
 // (5) 사용자 정보 메뉴 열기 닫기
-function popup(obj) {
+function profilePopup(obj) {
 	$(obj).css("display", "flex");
 }
 
@@ -155,9 +163,3 @@ function modalClose() {
 	$(".modal-subscribe").css("display", "none");
 	location.reload();
 }
-
-
-
-
-
-

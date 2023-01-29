@@ -11,7 +11,7 @@
 		<div class="profile-left">
 			<c:choose>
 				<c:when test="${dto.user.id eq principal.user.id}">
-					<div class="profile-img-wrap story-border" onclick="popup('.modal-image')">
+					<div class="profile-img-wrap story-border" onclick="profilePopup('.modal-image')">
 						<form id="userProfileImageForm">
 							<input type="file" name="profileImageFile" style="display: none;" id="userProfileImageInput" />
 						</form>
@@ -47,7 +47,7 @@
 						</c:choose>
 					</c:otherwise>
 				</c:choose>
-				<button class="modi" onclick="popup('.modal-info')">
+				<button class="modi" onclick="profilePopup('.modal-info')">
 					<i class="fas fa-cog"></i>
 				</button>
 			</div>
@@ -70,7 +70,7 @@
 	</div>
 </section>
 
-<!--게시물컨섹션-->
+<!--게시물 컬렉션-->
 <section id="tab-content">
 	<!--게시물컨컨테이너-->
 	<div class="profileContainer">
@@ -82,7 +82,7 @@
 				<!--아이템들-->
 
 				<c:forEach var="image" items="${dto.user.images}">
-					<div class="img-box">
+					<div class="img-box" onclick="popup('#modal-search-${image.id}', '${image.hashtag}')">
 						<a href=""> <img src="/upload/${image.post_image_url}" />
 						</a>
 						<div class="comment">
@@ -133,7 +133,13 @@
 
 </div>
 
+<!-- 게시글 모달 -->
+<c:forEach var="image" items="${dto.user.images}">
+	<%@ include file="../modal.jsp"%>	
+</c:forEach>
 
+<script src="/js/story.js"></script>
+<script src="/js/search.js"></script>
 <script src="/js/profile.js"></script>
 
 <%@ include file="../layout/footer.jsp"%>
