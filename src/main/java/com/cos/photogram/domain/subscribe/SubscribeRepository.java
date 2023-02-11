@@ -1,5 +1,7 @@
 package com.cos.photogram.domain.subscribe;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -23,4 +25,12 @@ public interface SubscribeRepository extends JpaRepository<Subscribe, Long> {
 	/* 구독개수 */
 	@Query(value = "SELECT COUNT(*) FROM subscribe WHERE from_user_id = :page_user_id", nativeQuery = true)
 	int subscribeCount(Long page_user_id);
+	
+	/* 내가 구독한 사용자 */
+	@Query(value = "SELECT to_user_id FROM subscribe WHERE from_user_id = :principal_id", nativeQuery = true)
+	List<Long> findSubscribeFrom(Long principal_id);
+	
+	/* 나를 구독한 사용자 */
+	@Query(value = "SELECT from_user_id FROM subscribe WHERE to_user_id = :principal_id", nativeQuery = true)
+	List<Long> findSubscribeTo(Long principal_id);
 }

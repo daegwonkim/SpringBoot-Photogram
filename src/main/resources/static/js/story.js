@@ -21,9 +21,34 @@ function storyLoad() {
 			let item = getStoryItem(image);
 			$("#storyList").append(item);
 		});
+		
+		notification();
 	}).fail(error => {
 		console.log(error);
 	});
+}
+
+// Show notification
+const showNotification = () => {
+  const notification_container = document.getElementById('notification-container')
+  
+  notification_container.classList.add('show')
+  setTimeout(() => {
+    notification_container.classList.remove('show')
+  }, 2000)
+}
+
+function notification() {
+    let eventSource = new EventSource("http://localhost:8080/sub");
+
+    eventSource.addEventListener("notification", function(event) {
+        let message = event.data;
+        showNotification();
+    })
+
+    eventSource.addEventListener("error", function(event) {
+        eventSource.close()
+    })
 }
 
 storyLoad();
@@ -103,8 +128,8 @@ function getStoryItem(image) {
 
 // (2) 스토리 스크롤 페이징하기
 $(window).scroll(() => {
-	let checkScroll = $(window).scrollTop() - ($(document).height() - $(window).height());
-	if (checkScroll > -1) {
+	let checkScroll = window.innerHeight + window.scrollY;
+	if (checkScroll >= document.body.offsetHeight) {
 		page++;
 		storyLoad();
 	}
@@ -196,3 +221,15 @@ function deleteComment(commentId) {
 		console.log(error);
 	});
 }
+
+/* 상태창, 알림창 스크롤 따라오기 */
+$(document).ready(function(){
+  let currentStatusPosition = parseInt($(".story-status").css("top"));
+  let currentNotificationPosition = parseInt($(".notification-container").css("top"));
+  
+  $(window).scroll(function() {
+    let position = $(window).scrollTop(); 
+    $(".story-status").stop().animate({"top":position+currentStatusPosition+"px"}, 500);
+    $(".notification-container").stop().animate({"top":position+currentNotificationPosition+"px"}, 500);
+  });
+});

@@ -12,11 +12,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import com.cos.photogram.config.auth.PrincipalDetails;
 import com.cos.photogram.domain.image.Image;
 import com.cos.photogram.domain.image.ImageRepository;
-import com.cos.photogram.domain.user.User;
+import com.cos.photogram.domain.subscribe.SubscribeRepository;
+import com.cos.photogram.web.NotificationController;
 import com.cos.photogram.web.dto.image.ImageUploadDto;
 
 import lombok.RequiredArgsConstructor;
@@ -26,6 +28,7 @@ import lombok.RequiredArgsConstructor;
 public class ImageService {
 
 	private final ImageRepository imageRepository;
+	private final SubscribeRepository subscribeRepository;
 	
 	/* 이미지 업로드 폴더 */
 	@Value("${file.path}")
@@ -51,6 +54,17 @@ public class ImageService {
 		
 		Image image = imageUploadDto.toEntity(principalDetails.getUser(), imageFileName);
 		imageRepository.save(image);
+				
+		/* 알림 부분 */
+		List<Long> subsToList = subscribeRepository.findSubscribeTo(principalDetails.getUser().getId());
+		for (Long id : subsToList) {
+			SseEmitter sseEmitter = NotificationController.sseEmitters.get(id);
+	        try {
+	            sseEmitter.send(SseEmitter.event().name("notification").data("알림이 왔습니다."));
+	        } catch (Exception e) {
+	        	NotificationController.sseEmitters.remove(id);
+	        }
+		}
 	}
 	
 	/* 스토리 페이지 */

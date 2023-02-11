@@ -12,7 +12,7 @@
 					<li><a href="#tag">태그</a></li>
 				</ul>
 				<div class="tabcontent">
-					<div id="person">
+					<div id="person" align="center">
 						<div class="search-summary">
 							<div class="search-title" align="center">사람</div>
 							<div class="search-count" align="center">${users.size()}명</div>

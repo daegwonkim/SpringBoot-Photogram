@@ -65,6 +65,8 @@
 				</ul>
 			</nav>
 		</div>
+		
+		<button onclick="showNotification()">알림</button>
 	</header>
 
 <script src="/js/profile.js"></script>

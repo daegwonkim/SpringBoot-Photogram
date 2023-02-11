@@ -10,9 +10,7 @@
   padding-top: 30px;
   width: 935px;
   display: flex;
-  flex-direction: column;
   margin: 0 auto;
-  align-items: center;
 }
 
 /*게시물리스트*/
@@ -230,3 +228,92 @@
   border: 2px solid #8a3ab8;
 }
 
+/* 상태창 */
+.story-status {
+  font-size: 13px;
+  margin-left: 20px;
+  top: 0;
+  height: 350px;
+  position: relative;
+}
+
+.story-status-others {
+  width: 300px;
+  height: 275px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.story-status-profile {
+  width: 300px;
+  height: 55px;	
+}
+
+.story-status-others
+  img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid #36B06A;
+}
+
+.story-profile
+  img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+hr {
+  border-top: 1px solid #dbdbdb;
+  margin: 10px 20px 10px 20px;
+}
+
+.story-status-name {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.story-status-bio {
+  color: gray;
+  margin-left: 10px;
+}
+
+/* 알림창 */
+.notification-container {
+  width: 250px;
+  float: right;
+  background: rgba(170,170,170,.3);
+  border: 1px solid rgba(150,150,150, .2);
+  border-radius: 5px 0 0 5px ;
+  padding: 15px 15px;
+  position: absolute;
+  right: -250px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.notification-container
+  img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #8A2AB8;
+  margin-right: 5px;
+}
+
+.notification-container
+  td {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.notification-container.show {
+  transform: translateX(-249px);
+}
+
+.notification-container
+  .notification-time {
+  font-size: 13px; 
+  font-weight: bold; 
+  float: right;
+}

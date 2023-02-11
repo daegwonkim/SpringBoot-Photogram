@@ -11,6 +11,58 @@
 			
 
 		</article>
+		
+		<div class="story-status">
+			<div class="story-profile">
+				<table>
+					<tr>
+						<td>
+							<img class="profile-image" src="/upload/${principal.user.profile_image_url}"
+								onerror="this.src='/images/person.jpeg'" />
+						</td>
+						<td>
+							<div class="story-status-name">${principal.user.name}</div>
+							<div class="story-status-bio">${principal.user.bio}</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<hr>
+			<div class="story-status-others">
+				<c:forEach var="subUser" items="${subUserList}">
+					<div class="story-status-profile">
+						<table>
+							<tr>
+								<td>
+									<img class="profile-image" src="/upload/${subUser.profile_image_url}"
+										onerror="this.src='/images/person.jpeg'" />
+								</td>
+								<td>
+									<div class="story-status-name">${subUser.name}</div>
+									<div class="story-status-bio">${subUser.bio}</div>
+								</td>
+							</tr>
+						</table>
+				</div>
+				</c:forEach>
+			</div>
+		</div>
+		
+		<div class="notification-container" id="notification-container">
+			<div class="notification-time">방금전</div>
+			<table>
+				<tr>
+					<td width="30">
+						<img class="profile-image" src="/upload/${subUser.profile_image_url}"
+							onerror="this.src='/images/person.jpeg'" />
+					</td>
+					<td>
+						<div>코스</div>
+					</td>
+				</tr>
+				<tr><td colspan="2"><div>새로운 글을 업로드했습니다!</div></td></tr>
+			</table>
+		</div>
 	</section>
 </main>
 <script src="/js/story.js"></script>
