@@ -60,7 +60,7 @@ public class ImageService {
 		for (Long id : subsToList) {
 			SseEmitter sseEmitter = NotificationController.sseEmitters.get(id);
 	        try {
-	            sseEmitter.send(SseEmitter.event().name("notification").data("알림이 왔습니다."));
+	            sseEmitter.send(SseEmitter.event().name("notification").data("새로운 글을 업로드했습니다!"));
 	        } catch (Exception e) {
 	        	NotificationController.sseEmitters.remove(id);
 	        }

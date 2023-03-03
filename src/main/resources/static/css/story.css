@@ -282,12 +282,11 @@ hr {
 /* 알림창 */
 .notification-container {
   width: 250px;
-  float: right;
   background: rgba(170,170,170,.3);
   border: 1px solid rgba(150,150,150, .2);
   border-radius: 5px 0 0 5px ;
   padding: 15px 15px;
-  position: absolute;
+  position: fixed;
   right: -250px;
   transition: transform 0.3s ease-in-out;
 }

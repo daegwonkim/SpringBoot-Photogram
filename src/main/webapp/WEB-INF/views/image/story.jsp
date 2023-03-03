@@ -60,7 +60,7 @@
 						<div>코스</div>
 					</td>
 				</tr>
-				<tr><td colspan="2"><div>새로운 글을 업로드했습니다!</div></td></tr>
+				<tr><td colspan="2"><div id="notification-content"></div></td></tr>
 			</table>
 		</div>
 	</section>

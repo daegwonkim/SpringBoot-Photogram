@@ -21,34 +21,35 @@ function storyLoad() {
 			let item = getStoryItem(image);
 			$("#storyList").append(item);
 		});
-		
+
+		//로그인과 동시에 이벤트 등록
 		notification();
 	}).fail(error => {
 		console.log(error);
 	});
 }
 
-// Show notification
-const showNotification = () => {
-  const notification_container = document.getElementById('notification-container')
-  
-  notification_container.classList.add('show')
-  setTimeout(() => {
-    notification_container.classList.remove('show')
-  }, 2000)
-}
-
+//notification
 function notification() {
-    let eventSource = new EventSource("http://localhost:8080/sub");
+	let eventSource = new EventSource("http://localhost:8080/sub");
 
-    eventSource.addEventListener("notification", function(event) {
-        let message = event.data;
-        showNotification();
-    })
+	eventSource.addEventListener("notification", function(event) {
+		let message = event.data;
 
-    eventSource.addEventListener("error", function(event) {
-        eventSource.close()
-    })
+		let notification_content = document.getElementById('notification-content');
+		let notification_container = document.getElementById('notification-container');
+
+		notification_content.textContent = message;
+
+		notification_container.classList.add('show');
+		setTimeout(() => {
+			notification_container.classList.remove('show');
+		}, 2000);
+	});
+
+	eventSource.addEventListener("error", function(event) {
+		eventSource.close();
+	});
 }
 
 storyLoad();
@@ -86,32 +87,32 @@ function getStoryItem(image) {
 		</div>
 		
 		<div class="sl__item__contents__tag__list">`;
-		
-		image.hashtagList.forEach((hashtag) => {
-			item += `<div class="sl__item__contents__tag">${hashtag}</div>`
-		});
-		
-		item += `</div>
+
+	image.hashtagList.forEach((hashtag) => {
+		item += `<div class="sl__item__contents__tag">${hashtag}</div>`
+	});
+
+	item += `</div>
 
 		<div id="storyCommentList-${image.id}">`
-			
-			image.comments.forEach((comment) => {
-				item += 
-					`<div class="sl__item__contents__comment" id="storyCommentItem-${comment.id}">
+
+	image.comments.forEach((comment) => {
+		item +=
+			`<div class="sl__item__contents__comment" id="storyCommentItem-${comment.id}">
 						<p>
 							<b>${comment.user.username} :</b> ${comment.content}
 						</p>`;
-						
-				if(principalId == comment.user.id) {
-					item +=
-						`<button onclick="deleteComment(${comment.id})">
+
+		if (principalId == comment.user.id) {
+			item +=
+				`<button onclick="deleteComment(${comment.id})">
 							<i class="fas fa-times"></i>
 						</button>`;
-				}
-		
-				item += `</div>`;
-			});
-	
+		}
+
+		item += `</div>`;
+	});
+
 	item += `
 		</div>
 
@@ -205,7 +206,7 @@ function addComment(imageId) {
 	}).fail(error => {
 		console.log(error);
 	});
-	
+
 	commentInput.val("");
 }
 
@@ -223,13 +224,13 @@ function deleteComment(commentId) {
 }
 
 /* 상태창, 알림창 스크롤 따라오기 */
-$(document).ready(function(){
-  let currentStatusPosition = parseInt($(".story-status").css("top"));
-  let currentNotificationPosition = parseInt($(".notification-container").css("top"));
-  
-  $(window).scroll(function() {
-    let position = $(window).scrollTop(); 
-    $(".story-status").stop().animate({"top":position+currentStatusPosition+"px"}, 500);
-    $(".notification-container").stop().animate({"top":position+currentNotificationPosition+"px"}, 500);
-  });
+$(document).ready(function() {
+	let currentStatusPosition = parseInt($(".story-status").css("top"));
+	let currentNotificationPosition = parseInt($(".notification-container").css("top"));
+
+	$(window).scroll(function() {
+		let position = $(window).scrollTop();
+		$(".story-status").stop().animate({ "top": position + currentStatusPosition + "px" }, 500);
+		$(".notification-container").stop().animate({ "top": position + currentNotificationPosition + "px" }, 500);
+	});
 });
