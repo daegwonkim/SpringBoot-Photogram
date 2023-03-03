@@ -50,6 +50,7 @@
 			</a>
 			<form id="searchForm" action="/search" method="GET">
 				<input type="text" id="search" name="keyword" placeholder="검색">
+				<div class="relative-keyword"></div>
 			</form>
 			<nav class="navi">
 				<ul class="navi-list">
@@ -68,3 +69,4 @@
 	</header>
 
 <script src="/js/profile.js"></script>
+<script src="/js/header.js"></script>

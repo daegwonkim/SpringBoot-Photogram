@@ -11,11 +11,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.cos.photogram.config.auth.PrincipalDetails;
 import com.cos.photogram.domain.user.User;
+import com.cos.photogram.service.ImageService;
 import com.cos.photogram.service.SubscribeService;
 import com.cos.photogram.service.UserService;
 import com.cos.photogram.web.dto.auth.CMRespDto;
@@ -60,5 +63,12 @@ public class UserApiController {
 		principalDetails.setUser(userEntity);
 		
 		return new ResponseEntity<>(new CMRespDto<>(1, "프로필 사진 변경 성공", null), HttpStatus.OK); 
+	}
+	
+	@GetMapping("/api/relative/{keyword}")
+	public ResponseEntity<?> relative(@PathVariable String keyword) {
+		List<User> relativeUserList = userService.userSearch(keyword);
+		
+		return new ResponseEntity<>(new CMRespDto<>(1, "연관 검색어 목록 가져오기 성공", relativeUserList), HttpStatus.OK);
 	}
 }
