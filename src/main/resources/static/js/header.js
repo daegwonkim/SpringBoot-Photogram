@@ -2,7 +2,7 @@ $(function() {
 	$("#search").keyup(function() {
 		let keyword = $("#search").val();
 		
-		/* 입력 상자가 비어있을 경우 */
+		/* 검색 상자가 비어있을 경우 */
 		if(!keyword) {
 			$(".relative-keyword > ul").remove();
 		}
@@ -16,7 +16,29 @@ $(function() {
 			
 			let ul = document.createElement("ul");
 			
-			resp.data.forEach((user) => {
+			console.log(resp);
+			
+			let tags = [];
+			resp.data.relativeTagDto.forEach((image) => {
+				let tagList = image.hashtag.split(",");
+				tagList.forEach((tag) => {
+					if(tag.startsWith("#" + keyword)) {
+						tags.push(tag);
+					}
+				});
+			});
+			
+			let set = new Set(tags);
+			let uniqueTags = [...set];
+			console.log(uniqueTags);
+			
+			uniqueTags.forEach((tag) => {
+				let li = document.createElement("li");
+				li.textContent = tag;
+				ul.append(li);
+			});
+			
+			resp.data.relativeUserDto.forEach((user) => {
 				let li = document.createElement("li");
 				li.textContent = user.name;
 				ul.append(li);

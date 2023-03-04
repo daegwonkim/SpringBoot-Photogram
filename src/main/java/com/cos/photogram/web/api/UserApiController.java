@@ -64,11 +64,4 @@ public class UserApiController {
 		
 		return new ResponseEntity<>(new CMRespDto<>(1, "프로필 사진 변경 성공", null), HttpStatus.OK); 
 	}
-	
-	@GetMapping("/api/relative/{keyword}")
-	public ResponseEntity<?> relative(@PathVariable String keyword) {
-		List<User> relativeUserList = userService.userSearch(keyword);
-		
-		return new ResponseEntity<>(new CMRespDto<>(1, "연관 검색어 목록 가져오기 성공", relativeUserList), HttpStatus.OK);
-	}
 }
