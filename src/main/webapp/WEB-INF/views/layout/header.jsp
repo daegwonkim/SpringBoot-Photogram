@@ -50,7 +50,20 @@
 			</a>
 			<form id="searchForm" action="/search" method="GET">
 				<input type="text" id="search" name="keyword" placeholder="검색">
-				<div class="relative-keyword"></div>
+				<div class="relative-tab">
+					<ul class="relative-tabnav">
+						<li><a href="#account">계정</a></li>
+						<li><a href="#tag">태그</a></li>
+					</ul>
+					<div class="relative-tabcontent">
+						<div id="account">
+							<div class="relative-keyword" id="relative-keyword-account"></div>
+						</div>
+						<div id="tag">
+							<div class="relative-keyword" id="relative-keyword-tag"></div>
+						</div>
+					</div>
+				</div>
 			</form>
 			<nav class="navi">
 				<ul class="navi-list">

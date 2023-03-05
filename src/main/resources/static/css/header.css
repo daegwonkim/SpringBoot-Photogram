@@ -81,23 +81,77 @@
 .relative-keyword {
 	z-index: 1;
 	background-color: white;
-	position: absolute;
 	display: none;
-	top: 40px;
 	width: 200px;
 	border: solid 1px #D7DBDD;
 	border-radius: 2px;
 }
 
-.relative-keyword ul {
-	padding: 0;
-	margin: 0;
-}
-
 .relative-keyword li {
-	list-style: none;
 	padding-left: 5px;
 	font-size: 13px;
 	height: 30px;
 	line-height: 30px;
+}
+
+.relative-tab {
+	width: 200px;
+	position: absolute;
+	font-size: 0;
+	z-index: 1;
+	background: #fff;
+	display: none;
+}
+
+.relative-tabnav {
+	border-left: solid 1px #D7DBDD;
+	border-right: solid 1px #D7DBDD;
+}
+
+.relative-tabnav li {
+	display: inline-block;
+	text-align: center;
+	width: 50px;
+}
+
+.relative-tabnav li a.active:before {
+	background: #0095f6;
+}
+
+.relative-tabnav li a.active {
+	border-bottom: 1px solid #fff;
+}
+
+.relative-tabnav li a {
+	display: block;
+	background: #fafafa;
+	color: #000;
+	line-height: 30px;
+	font-size: 13px;
+}
+
+.relative-tabnav li a:hover, .relative-tabnav li a.active {
+	background: #fff;
+	color: #0095f6;
+}
+
+
+.relative-keyword-image {
+	width: 25px; 
+	height: 25px; 
+	margin: 2.5px 5px 0 0;
+}
+
+.relative-keyword-image img {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;	
+}
+
+.relative-keyword-box {
+	cursor: pointer;
+}
+
+.relative-keyword-box:hover {
+	background: #F8F9F9;
 }
