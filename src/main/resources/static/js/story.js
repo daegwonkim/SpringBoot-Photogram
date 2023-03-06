@@ -61,7 +61,7 @@ function getStoryItem(image) {
 			<img class="profile-image" src="/upload/${image.user.profile_image_url}"
 				onerror="this.src='/images/person.jpeg'" />
 		</div>
-		<div>${image.user.name}</div>
+		<div class="pointer" onclick="location.href='/user/${image.user.id}'">${image.user.name}</div>
 	</div>
 
 	<div class="sl__item__img">
@@ -89,18 +89,19 @@ function getStoryItem(image) {
 		<div class="sl__item__contents__tag__list">`;
 
 	image.hashtagList.forEach((hashtag) => {
-		item += `<div class="sl__item__contents__tag">${hashtag}</div>`
+		item += `<div class="sl__item__contents__tag" onclick="location.href='/search?keyword=${hashtag.slice(1)}'">${hashtag}</div>`
 	});
 
 	item += `</div>
 
-		<div id="storyCommentList-${image.id}">`
+		<div class="story__comment__list" id="storyCommentList-${image.id}">`
 
 	image.comments.forEach((comment) => {
 		item +=
 			`<div class="sl__item__contents__comment" id="storyCommentItem-${comment.id}">
 						<p>
-							<b>${comment.user.username} :</b> ${comment.content}
+							<b class="pointer" onclick="location.href='/user/${comment.user.id}'">
+								${comment.user.name} :</b> ${comment.content}
 						</p>`;
 
 		if (principalId == comment.user.id) {
@@ -197,7 +198,7 @@ function addComment(imageId) {
 		let content =
 			`<div class="sl__item__contents__comment" id="storyCommentItem-${resp.data.id}"> 
 			    <p>
-			      <b>${resp.data.user.username} :</b>
+			      <b class="pointer" onclick="location.href='/user/${resp.data.user.id}'">${resp.data.user.name} :</b>
 			      ${resp.data.content}
 			    </p>
 			    <button onclick="deleteComment(${resp.data.id})"><i class="fas fa-times"></i></button>

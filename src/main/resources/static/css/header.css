@@ -77,6 +77,10 @@
 	display: flex;
 }
 
+.pointer {
+	cursor: pointer;
+}
+
 /* 연관 검색어 */
 .relative-keyword {
 	z-index: 1;
@@ -134,7 +138,6 @@
 	background: #fff;
 	color: #0095f6;
 }
-
 
 .relative-keyword-image {
 	width: 25px; 

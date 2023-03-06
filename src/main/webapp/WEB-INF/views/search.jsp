@@ -23,7 +23,7 @@
 								<img class="search-profile-img" src="/upload/${user.profile_image_url}" onerror="this.src='/images/person.jpeg'" />
 								<div class="search-profile">
 									<div class="search-profile-item">
-										<h5 class="pointer" onclick="location.href='/user/${user.id}'">${user.name}</h5>
+										<h5 class="pointer" onclick="location.href='/user/${user.id}'" align="left">${user.name}</h5>
 										<div class="search-profile-content">${user.bio}</div>
 									</div>
 								</div>

@@ -21,7 +21,8 @@ function popup(obj, hashtag) {
 	let hashtagList = hashtag.split(",");
 
 	hashtagList.forEach((hashtag) => {
-		$(".sl__item__contents__tag__list").append(`<div class="sl__item__contents__tag">${hashtag}</div>`);
+		$(".sl__item__contents__tag__list").append(`<div class="sl__item__contents__tag pointer" 
+			onclick="location.href='/search?keyword=${hashtag.slice(1)}'">${hashtag}</div>`);
 	});
 	
 	$(obj).css("display", "flex");

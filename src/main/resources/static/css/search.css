@@ -190,7 +190,7 @@ overflow-y: auto;
 /* 게시물 이미지 박스*/
 .modal-search .modal .story-list__item .sl__item__img {
   width: 650px;
-  height: 500px;
+  height: 650px;
   min-height: 300px;
 }
 

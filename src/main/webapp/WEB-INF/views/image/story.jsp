@@ -21,7 +21,9 @@
 								onerror="this.src='/images/person.jpeg'" />
 						</td>
 						<td>
-							<div class="story-status-name">${principal.user.name}</div>
+							<div class="story-status-name pointer" onclick="location.href='/user/${principal.user.id}'">
+								${principal.user.name}
+							</div>
 							<div class="story-status-bio">${principal.user.bio}</div>
 						</td>
 					</tr>
@@ -38,7 +40,9 @@
 										onerror="this.src='/images/person.jpeg'" />
 								</td>
 								<td>
-									<div class="story-status-name">${subUser.name}</div>
+									<div class="story-status-name pointer" onclick="location.href='/user/${subUser.id}'">
+										${subUser.name}
+									</div>
 									<div class="story-status-bio">${subUser.bio}</div>
 								</td>
 							</tr>

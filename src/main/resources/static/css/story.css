@@ -160,6 +160,7 @@
   font-weight: bold;
   color: #2471A3;
   padding: 0 5px 0 0; 
+  cursor: pointer;
 }
 
 /*코멘트 = 댓글 */
@@ -168,8 +169,7 @@
   .story-list
   .story-list__item
   .sl__item__contents
-  .sl__item__contents__comment
-  {
+  .sl__item__contents__comment {
   display:flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -178,6 +178,11 @@
   font-size: 16px;
   padding: 0 15px;
   margin-bottom: 5px;
+}
+
+.story__comment__list {
+	max-height: 92px;
+	overflow: auto;
 }
 
 /*댓글 삭제버튼*/
@@ -241,7 +246,7 @@
   width: 300px;
   height: 275px;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .story-status-profile {

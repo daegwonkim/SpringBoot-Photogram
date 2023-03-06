@@ -7,7 +7,7 @@
 				<div>
 					<img class="profile-image" src="/upload/${image.user.profile_image_url}" onerror="this.src='/images/person.jpeg'">
 				</div>
-				<div>${image.user.name}</div>
+				<div class="pointer" onclick="location.href='/user/${image.user.id}'">${image.user.name}</div>
 			</div>
 
 			<div class="sl__item__img">
@@ -45,11 +45,12 @@
 
 				<div class="sl__item__contents__tag__list"></div>
 
-				<div id="storyCommentList-${image.id}">
+				<div class="story__comment__list" id="storyCommentList-${image.id}">
 					<c:forEach var="comment" items="${image.comments}">
 						<div class="sl__item__contents__comment" id="storyCommentItem-${comment.id}">
 							<p>
-								<b>${comment.user.username} :</b> ${comment.content}
+								<b  class="pointer" onclick="location.href='/user/${comment.user.id}'">${comment.user.name} :</b> 
+								${comment.content}
 							</p>
 							<c:if test="${principal.user.id eq comment.user.id}">
 								<button onclick="deleteComment(${comment.id})">
