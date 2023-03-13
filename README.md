@@ -68,12 +68,17 @@
 <hr>
 
 ### 3. DB 설계
-
+![erd](https://user-images.githubusercontent.com/45421117/224655048-c56dbea0-b866-48f3-957c-4c5eef3ba129.png)
 
 <hr>
 
 ### 4. API 설계
-
+![user](https://user-images.githubusercontent.com/45421117/224662001-739bb666-50a8-4ce8-aaed-f21d21ac0c32.png)
+![image](https://user-images.githubusercontent.com/45421117/224662112-49ce47a6-abdb-44bc-bffe-7b95e9cb2cb1.png)
+![subscribe](https://user-images.githubusercontent.com/45421117/224662172-15f83989-f380-45e8-ab52-e3a72b93c46d.png)
+![comment](https://user-images.githubusercontent.com/45421117/224662232-cd9b45df-62d9-4686-912a-ba0b37f2758c.png)
+![search](https://user-images.githubusercontent.com/45421117/224662296-4615beec-77ac-414d-b393-d469d48c9dc1.png)
+![notification](https://user-images.githubusercontent.com/45421117/224662361-8c1a6a31-95ee-477a-b072-fb769ccade08.png)
 
 <hr>
 
