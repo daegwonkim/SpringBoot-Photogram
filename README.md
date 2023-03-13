@@ -113,41 +113,41 @@
 ![login](https://user-images.githubusercontent.com/45421117/224647069-a230369b-8c5a-4309-b9b1-eef63fd1227c.png)
 
 #### 로그인에 실패할 경우
-
+![login_fail](https://user-images.githubusercontent.com/45421117/224647499-bf110f4d-a4f5-4b98-b25f-4ce2917dd431.png)
 
 #### 회원가입 페이지
-
-
-#### 회원가입에 실패한 경우
-
+![join](https://user-images.githubusercontent.com/45421117/224647606-9ad73f70-a441-445b-bf6c-fb9a22fbc669.png)
 
 #### 사용자 프로필 페이지
-
+![profile](https://user-images.githubusercontent.com/45421117/224647824-05d2aaf4-9caa-41f6-9fd2-871311447933.png)
 
 #### 회원정보 수정 페이지
-
+![update](https://user-images.githubusercontent.com/45421117/224647926-81f15314-7d75-418f-afe8-f3b6de693cfb.png)
+	
 </details>
 
 <details>
 <summary>게시글 관련</summary>
 
 #### 스토리 페이지
-
+![story](https://user-images.githubusercontent.com/45421117/224648811-07641338-93ef-46b4-ae95-86c68e72a679.png)
 
 #### 게시글 업로드 페이지
-
+![upload](https://user-images.githubusercontent.com/45421117/224648917-d19f3268-03a5-41ef-854d-81731cac90e0.png)
+	
 </details>
 
 <details>
 <summary>검색 관련</summary>
 
 #### 연관 검색어 기능
-
+![relative](https://user-images.githubusercontent.com/45421117/224649162-57ac011e-1b7e-439c-8f1e-beb0b4e71459.png)
 
 #### 사용자 검색 페이지
-
+![account](https://user-images.githubusercontent.com/45421117/224649292-a013a247-f079-4d9d-8c7c-58029b97d56e.png)
 
 #### 게시글 검색 페이지
+![tag](https://user-images.githubusercontent.com/45421117/224649433-a1c1b16c-77fb-473c-af02-25d159252631.png)
 
 </details>
 
