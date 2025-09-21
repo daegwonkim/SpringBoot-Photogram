@@ -82,34 +82,6 @@
 
 <hr>
 
-### 5. 개발 내용
-1. [[Photogram] 회원가입 - Security 설정](https://daegwonkim.tistory.com/341)
-2. [[Photogram] 회원가입 - 데이터베이스 저장](https://daegwonkim.tistory.com/342)
-3. [[Photogram] 회원가입 - Validation](https://daegwonkim.tistory.com/343)
-4. [[Photogram] 회원가입 - 공통 응답 DTO, Script 만들기](https://daegwonkim.tistory.com/344)
-5. [[Photogram] 로그인](https://daegwonkim.tistory.com/345)
-6. [[Photogram] 회원정보 수정](https://daegwonkim.tistory.com/346)
-7. [[Photogram] 구독하기](https://daegwonkim.tistory.com/347)
-8. [[Photogram] 프로필 페이지 - 서버에 이미지 업로드](https://daegwonkim.tistory.com/348)
-9. [[Photogram] 프로필 페이지 - DB에 이미지 업로드](https://daegwonkim.tistory.com/349)
-10. [[Photogram] 프로필 페이지 - 뷰 렌더링](https://daegwonkim.tistory.com/350)
-11. [[Photogram] 구독하기 - 뷰 렌더링](https://daegwonkim.tistory.com/351)
-12. [[Photogram] 구독하기 - 구독 모달](https://daegwonkim.tistory.com/353)
-13. [[Photogram] 스토리 페이지](https://daegwonkim.tistory.com/354)
-14. [[Photogram] 좋아요 구현하기](https://daegwonkim.tistory.com/355)
-15. [[Photogram] 인기 페이지 구현](https://daegwonkim.tistory.com/356)
-16. [[Photogram] 프로필 사진 변경](https://daegwonkim.tistory.com/357)
-17. [[Photogram] 댓글 구현](https://daegwonkim.tistory.com/358)
-18. [[Photogram] 유효성 검사 자동화 - AOP 처리](https://daegwonkim.tistory.com/359)
-19. [[Photogram] OAuth2 페이스북 로그인](https://daegwonkim.tistory.com/360)
-20. [[Photogram] 검색 기능 구현](https://daegwonkim.tistory.com/376)
-21. [[Photogram] 로그인 실패 처리](https://daegwonkim.tistory.com/377)
-22. [[Photogram] 해시태그 기능 추가](https://daegwonkim.tistory.com/378)
-23. [[Photogram] 실시간 알림](https://daegwonkim.tistory.com/379)
-24. [[Photogram] 연관 검색어](https://daegwonkim.tistory.com/380)
-
-<hr>
-
 ### 6. 실행 화면
 <details>
 <summary>사용자 관련</summary>
